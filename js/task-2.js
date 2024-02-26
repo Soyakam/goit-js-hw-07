@@ -13,18 +13,21 @@ const images = [
   },
 ];
 
-const gallery = document.querySelector('.gallery');
+    const gallery = document.querySelector('.gallery');
+const fragment = document.createDocumentFragment();
 
-    const galleryItems = images.map(image => {
-      const li = document.createElement('li');
-      li.classList.add('gallery-item');
-      const img = document.createElement('img');
-      img.src = image.url;
-      img.alt = image.alt;
-      li.appendChild(img);
-      return li;
-    });
+const galleryItems = images.map(image => {
+  const li = document.createElement('li');
+  li.classList.add('gallery-item');
+  const img = document.createElement('img');
+  img.src = image.url;
+  img.alt = image.alt;
+  li.appendChild(img);
+  return li;
+});
 
-    galleryItems.forEach(item => {
-      gallery.appendChild(item);
-    });
+galleryItems.forEach(item => {
+  fragment.appendChild(item);
+});
+
+gallery.appendChild(fragment);
